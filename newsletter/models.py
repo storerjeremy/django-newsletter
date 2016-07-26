@@ -31,7 +31,7 @@ class Newsletter(models.Model):
     site = models.ManyToManyField(Site, default=get_default_sites)
 
     title = models.CharField(
-        max_length=200, verbose_name=_('newsletter title')
+        max_length=191, verbose_name=_('newsletter title')
     )
     slug = models.SlugField(db_index=True, unique=True)
 
@@ -39,7 +39,7 @@ class Newsletter(models.Model):
         verbose_name=_('e-mail'), help_text=_('Sender e-mail')
     )
     sender = models.CharField(
-        max_length=200, verbose_name=_('sender'), help_text=_('Sender name')
+        max_length=191, verbose_name=_('sender'), help_text=_('Sender name')
     )
 
     visible = models.BooleanField(
@@ -428,7 +428,7 @@ class Article(models.Model):
         verbose_name=_('sort order'), blank=True
     )
 
-    title = models.CharField(max_length=200, verbose_name=_('title'))
+    title = models.CharField(max_length=191, verbose_name=_('title'))
     text = models.TextField(verbose_name=_('text'))
 
     url = models.URLField(
@@ -469,7 +469,7 @@ class Article(models.Model):
 class Message(models.Model):
     """ Message as sent through a Submission. """
 
-    title = models.CharField(max_length=200, verbose_name=_('title'))
+    title = models.CharField(max_length=191, verbose_name=_('title'))
     slug = models.SlugField(verbose_name=_('slug'))
 
     newsletter = models.ForeignKey(

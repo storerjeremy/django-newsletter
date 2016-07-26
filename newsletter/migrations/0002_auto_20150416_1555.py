@@ -16,12 +16,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='newsletter',
             name='email',
-            field=models.EmailField(help_text='Sender e-mail', max_length=254, verbose_name='e-mail'),
+            field=models.EmailField(help_text='Sender e-mail', max_length=191, verbose_name='e-mail'),
         ),
         migrations.AlterField(
             model_name='subscription',
             name='email_field',
-            field=models.EmailField(db_column='email', max_length=254, blank=True, null=True, verbose_name='e-mail', db_index=True),
+            field=models.EmailField(db_column='email', max_length=191, blank=True, null=True, verbose_name='e-mail', db_index=True),
         ),
     ]
 

@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('sortorder', models.PositiveIntegerField(help_text='Sort order determines the order in which articles are concatenated in a post.', verbose_name='sort order', db_index=True)),
-                ('title', models.CharField(max_length=200, verbose_name='title')),
+                ('title', models.CharField(max_length=191, verbose_name='title')),
                 ('text', models.TextField(verbose_name='text')),
                 ('url', models.URLField(null=True, verbose_name='link', blank=True)),
                 ('image', sorl.thumbnail.fields.ImageField(upload_to='newsletter/images/%Y/%m/%d', null=True, verbose_name='image', blank=True)),
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
             name='Message',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('title', models.CharField(max_length=200, verbose_name='title')),
+                ('title', models.CharField(max_length=191, verbose_name='title')),
                 ('slug', models.SlugField(verbose_name='slug')),
                 ('date_create', models.DateTimeField(auto_now_add=True, verbose_name='created')),
                 ('date_modify', models.DateTimeField(auto_now=True, verbose_name='modified')),
@@ -52,10 +52,10 @@ class Migration(migrations.Migration):
             name='Newsletter',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('title', models.CharField(max_length=200, verbose_name='newsletter title')),
+                ('title', models.CharField(max_length=191, verbose_name='newsletter title')),
                 ('slug', models.SlugField(unique=True)),
                 ('email', models.EmailField(help_text='Sender e-mail', max_length=75, verbose_name='e-mail')),
-                ('sender', models.CharField(help_text='Sender name', max_length=200, verbose_name='sender')),
+                ('sender', models.CharField(help_text='Sender name', max_length=191, verbose_name='sender')),
                 ('visible', models.BooleanField(default=True, db_index=True, verbose_name='visible')),
                 ('send_html', models.BooleanField(default=True, help_text='Whether or not to send HTML versions of e-mails.', verbose_name='send html')),
                 ('site', models.ManyToManyField(default=newsletter.utils.get_default_sites, to='sites.Site')),
